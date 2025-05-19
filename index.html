@@ -6,7 +6,7 @@
   <title>NorthTech Repairs</title>
   <style>
     body {
-      background: url('images/images/background.png') no-repeat center center fixed;
+      background: url('images/background.png') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Segoe UI', sans-serif;
       color: #ffffff;
@@ -53,7 +53,7 @@
     }
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(2, 1fr); /* Two columns */
       gap: 1rem;
       margin-top: 2rem;
     }
@@ -69,6 +69,11 @@
       max-width: 150px;
       margin-bottom: 1rem;
     }
+    /* New grid layout for 3 cards */
+    .service-card.water-damage {
+      grid-column: span 2; /* Span the entire width of the grid */
+      margin-top: 1rem; /* Adds space between rows */
+    }
     .footer {
       margin-top: 3rem;
       font-size: 0.8rem;
@@ -79,24 +84,25 @@
 <body>
   <!-- Logo and Tagline -->
   <div class="logo">
-    <img src="images/images/northtech_logo.png" alt="NorthTech Repairs Logo">
+    <img src="images/northtech_logo.png" alt="NorthTech Repairs Logo">
   </div>
   <div class="tagline">Your Local Mobile & Gadget Repair Experts</div>
 
   <!-- Service Cards -->
   <div class="services">
     <div class="service-card">
-      <img src="images/images/screen_repair.png" alt="Screen Repair">
+      <img src="images/screen.jpg" alt="Screen Repair">
       <h3>Screen Repair</h3>
       <p>Cracked or damaged screen? We fix it quickly!</p>
     </div>
     <div class="service-card">
-      <img src="images/images/battery_replacement.png" alt="Battery Replacement">
+      <img src="images/battery.jpg" alt="Battery Replacement">
       <h3>Battery Replacement</h3>
       <p>Replace your battery for optimal performance.</p>
     </div>
-    <div class="service-card">
-      <img src="images/images/water_damage_repair.png" alt="Water Damage Repair">
+    <!-- Water Damage card centered -->
+    <div class="service-card water-damage">
+      <img src="images/waterjpg.jpg" alt="Water Damage Repair">
       <h3>Water Damage</h3>
       <p>We bring your device back to life!</p>
     </div>
@@ -105,8 +111,6 @@
   <!-- Call to Action Buttons -->
   <a href="#" class="button">Book a Repair (Coming Soon)</a>
   <a href="mailto:northtechrepairs@gmail.com" class="button">Email Us</a>
-  <a href="#" class="button">Text Us (Coming Soon)</a>
-  <a href="#" class="button">Buy Parts (Coming Soon)</a>
 
   <div class="footer">&copy; 2025 NorthTech Repairs</div>
 </body>
