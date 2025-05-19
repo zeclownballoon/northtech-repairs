@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NorthTech Repairs</title>
   <style>
-    /* General Body Style */
     body {
       background: url('images/images/background.png') no-repeat center center fixed;
       background-size: cover;
@@ -20,7 +19,6 @@
       justify-content: space-between;
     }
 
-    /* Logo Styling */
     .logo {
       font-size: 2.5rem;
       font-weight: bold;
@@ -30,14 +28,13 @@
     }
 
     .logo img {
-      max-width: 250px; /* Adjust size as needed */
+      max-width: 350px; /* Wider logo */
       width: 100%;
       height: auto;
       margin: 0 auto;
       animation: slideUp 1.5s ease-out;
     }
 
-    /* Tagline Styling */
     .tagline {
       font-size: 1.25rem;
       margin-bottom: 2rem;
@@ -45,7 +42,6 @@
       animation: fadeIn 1.5s ease-out;
     }
 
-    /* Button Styling */
     .button {
       display: block;
       width: 80%;
@@ -65,44 +61,42 @@
       background-color: #2563eb;
     }
 
-    /* Services Section */
     .services {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* Two columns for Screen Repair and Battery Replacement */
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       margin-top: 2rem;
     }
 
     .service-card {
-      background: rgba(0, 0, 0, 0.3); /* More transparent black background */
+      background: rgba(0, 0, 0, 0.3);
       padding: 1rem;
       border-radius: 8px;
       text-align: center;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       transition: background 0.3s ease;
-      color: white; /* White text for all content inside the card */
+      color: white;
       animation: fadeIn 1s ease-out;
     }
 
     .service-card img {
       width: 100%;
-      max-width: 225px; /* Increase size to 1.5x larger */
+      max-width: 225px;
       margin-bottom: 1rem;
       transition: transform 0.3s ease;
     }
 
     .service-card:hover {
-      background: rgba(0, 0, 0, 0.6); /* Darken background on hover */
+      background: rgba(0, 0, 0, 0.6);
     }
 
-    /* Hover effect on image */
     .service-card:hover img {
       transform: scale(1.05);
     }
 
-    /* Water Damage Card Centered */
-    .water-damage, .diagnostics {
-      grid-column: 1 / span 2; /* Make it span across both columns */
+    .water-damage,
+    .diagnostics {
+      grid-column: 1 / span 2;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -110,7 +104,6 @@
       animation: fadeIn 1.5s ease-out;
     }
 
-    /* Footer Styling */
     .footer {
       margin-top: 3rem;
       font-size: 0.8rem;
@@ -126,7 +119,6 @@
       text-decoration: none;
     }
 
-    /* Animations */
     @keyframes fadeIn {
       0% { opacity: 0; }
       100% { opacity: 1; }
@@ -137,14 +129,15 @@
       100% { transform: translateY(0); opacity: 1; }
     }
 
-    /* Media Query for Mobile Responsiveness */
     @media (max-width: 768px) {
       .services {
-        grid-template-columns: 1fr; /* Stack the cards on smaller screens */
+        grid-template-columns: 1fr;
       }
+
       .hero h1 {
         font-size: 2rem;
       }
+
       .button {
         width: 90%;
       }
@@ -160,14 +153,12 @@
 
   <!-- Service Cards -->
   <div class="services">
-    <!-- Screen Repair Card (clickable) -->
     <a href="mailto:northtechrepairs@gmail.com?subject=Screen Repair Inquiry" class="service-card">
       <img src="images/images/screen.jpg" alt="Screen Repair">
       <h3>Screen Repair</h3>
       <p>Cracked or damaged screen? We fix it quickly!</p>
     </a>
 
-    <!-- Battery Replacement Card (clickable) -->
     <a href="mailto:northtechrepairs@gmail.com?subject=Battery Replacement Inquiry" class="service-card">
       <img src="images/images/battery.jpg" alt="Battery Replacement">
       <h3>Battery Replacement</h3>
@@ -175,7 +166,7 @@
     </a>
   </div>
 
-  <!-- Water Damage Card (clickable) -->
+  <!-- Water Damage -->
   <div class="services">
     <a href="mailto:northtechrepairs@gmail.com?subject=Water Damage Repair Inquiry" class="service-card water-damage">
       <img src="images/images/waterjpg.jpg" alt="Water Damage Repair">
@@ -184,20 +175,20 @@
     </a>
   </div>
 
-  <!-- Diagnostics Card (clickable) -->
+  <!-- Diagnostics -->
   <div class="services">
     <a href="mailto:northtechrepairs@gmail.com?subject=Diagnostics Inquiry" class="service-card diagnostics">
-      <img src="images/images/repair.jpeg" alt="Diagnostics">
+      <img src="images/images/repair.jpg" alt="Diagnostics">
       <h3>Diagnostics</h3>
       <p>Let us diagnose the problem with your device before you spend any money.</p>
     </a>
   </div>
 
-  <!-- Call to Action Buttons -->
+  <!-- Call to Action -->
   <a href="#" class="button">Book a Repair (Coming Soon)</a>
   <a href="mailto:northtechrepairs@gmail.com" class="button">Email Us</a>
 
-  <!-- Footer with Business Information -->
+  <!-- Footer -->
   <div class="footer">
     <p>&copy; 2025 NorthTech Repairs</p>
     <p>Email: <a href="mailto:northtechrepairs@gmail.com">northtechrepairs@gmail.com</a></p>
