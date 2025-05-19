@@ -1,193 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NorthTech Repairs</title>
-  <style>
-    body {
-      background: url('images/images/background.png') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Segoe UI', sans-serif;
-      color: #ffffff;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      position: relative;
-    }
+body {
+  background: url('images/images/background.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', sans-serif;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
 
-    /* Side Decorative Gradient */
-    .side-decoration {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: -1;
-    }
+/* Side Decorative Gradient */
+.side-decoration {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -2; /* Move side decoration behind everything */
+}
 
-    .side-decoration::before,
-    .side-decoration::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 25%;
-      background: rgba(59, 130, 246, 0.6); /* Soft blue gradient */
-      z-index: -1;
-    }
+.side-decoration::before,
+.side-decoration::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 25%;
+  background: rgba(59, 130, 246, 0.6); /* Soft blue gradient */
+  z-index: -2; /* Ensure these elements stay behind */
+}
 
-    .side-decoration::before {
-      left: 0;
-      border-radius: 10px;
-      background: linear-gradient(to left, rgba(59, 130, 246, 0.6), rgba(0, 0, 0, 0));
-    }
+.side-decoration::before {
+  left: 0;
+  border-radius: 10px;
+  background: linear-gradient(to left, rgba(59, 130, 246, 0.6), rgba(0, 0, 0, 0));
+}
 
-    .side-decoration::after {
-      right: 0;
-      border-radius: 10px;
-      background: linear-gradient(to right, rgba(59, 130, 246, 0.6), rgba(0, 0, 0, 0));
-    }
+.side-decoration::after {
+  right: 0;
+  border-radius: 10px;
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.6), rgba(0, 0, 0, 0));
+}
 
-    /* Tech-inspired shapes (circuit patterns/abstract lines) */
-    .side-decoration .tech-shapes {
-      position: absolute;
-      top: 10%;
-      bottom: 10%;
-      left: 5%;
-      right: 5%;
-      background-image: url('images/images/circuit-pattern.svg'); /* Add circuit pattern SVG */
-      background-size: cover;
-      opacity: 0.2;
-      pointer-events: none; /* Prevent interaction with shapes */
-      z-index: -1;
-    }
+/* Tech-inspired shapes (circuit patterns/abstract lines) */
+.side-decoration .tech-shapes {
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 5%;
+  right: 5%;
+  background-image: url('images/images/circuit-pattern.svg'); /* Add circuit pattern SVG */
+  background-size: cover;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: -2;
+}
 
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-      padding: 0 15px;
-    }
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1; /* Keep the content above the background */
+  padding: 0 15px;
+}
 
-    /* Content styles */
-    .logo img {
-      width: 800px;
-      height: 350px;
-      margin: 0 auto;
-      display: block;
-      animation: slideUp 1.5s ease-out;
-    }
+/* Other styles for the content (logo, services, etc.) */
+.logo img {
+  width: 800px;
+  height: 350px;
+  margin: 0 auto;
+  display: block;
+  animation: slideUp 1.5s ease-out;
+  z-index: 2; /* Ensure the logo is above the background */
+}
 
-    .tagline {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      color: #d1d5db;
-      text-align: center;
-    }
+.tagline {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #d1d5db;
+  text-align: center;
+}
 
-    .button {
-      display: block;
-      width: 80%;
-      max-width: 350px;
-      margin: 0.75rem auto;
-      padding: 1rem;
-      background-color: #3b82f6;
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: background 0.3s ease;
-    }
+.button {
+  display: block;
+  width: 80%;
+  max-width: 350px;
+  margin: 0.75rem auto;
+  padding: 1rem;
+  background-color: #3b82f6;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+}
 
-    .button:hover {
-      background-color: #2563eb;
-    }
+.button:hover {
+  background-color: #2563eb;
+}
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 2rem;
-      z-index: 1;
-    }
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  z-index: 2; /* Ensure the cards are above the background */
+}
 
-    .service-card {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s ease;
-      color: white;
-    }
+.service-card {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+  color: white;
+}
 
-    .service-card img {
-      width: 100%;
-      max-width: 225px;
-      margin-bottom: 1rem;
-    }
+.service-card img {
+  width: 100%;
+  max-width: 225px;
+  margin-bottom: 1rem;
+}
 
-    .footer {
-      margin-top: 3rem;
-      font-size: 0.8rem;
-      color: #9ca3af;
-      text-align: center;
-    }
-
-  </style>
-</head>
-<body>
-
-  <div class="side-decoration">
-    <!-- Background gradient and tech shapes -->
-    <div class="tech-shapes"></div>
-  </div>
-
-  <div class="container">
-    <!-- Logo -->
-    <div class="logo">
-      <img src="images/images/northtech_logo.png" alt="NorthTech Repairs Logo">
-    </div>
-
-    <div class="tagline">Your Local Mobile & Gadget Repair Experts</div>
-
-    <div class="services">
-      <!-- Service Cards -->
-      <a href="contact.html?service=screen-repair" class="service-card">
-        <img src="images/images/screen.jpg" alt="Screen Repair">
-        <h3>Screen Repair</h3>
-        <p>Cracked or damaged screen? We fix it quickly!</p>
-      </a>
-      <a href="contact.html?service=battery-replacement" class="service-card">
-        <img src="images/images/battery.jpg" alt="Battery Replacement">
-        <h3>Battery Replacement</h3>
-        <p>Replace your battery for optimal performance.</p>
-      </a>
-      <a href="contact.html?service=water-damage" class="service-card">
-        <img src="images/images/waterjpg.jpg" alt="Water Damage Repair">
-        <h3>Water Damage</h3>
-        <p>We bring your device back to life!</p>
-      </a>
-      <a href="contact.html?service=diagnostics" class="service-card">
-        <img src="images/images/repair.jpg" alt="Diagnostics">
-        <h3>Diagnostics</h3>
-        <p>Let us help identify any issues with your device.</p>
-      </a>
-    </div>
-
-    <!-- Call to Action Buttons -->
-    <a href="#" class="button">Book a Repair (Coming Soon)</a>
-    <a href="mailto:northtechrepairs@gmail.com" class="button">Email Us</a>
-
-    <div class="footer">&copy; 2025 NorthTech Repairs</div>
-  </div>
-
-</body>
-</html>
+.footer {
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  text-align: center;
+}
