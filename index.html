@@ -28,9 +28,9 @@
     }
 
     .logo img {
-      max-width: 350px;
-      width: 100%;
-      height: auto;
+      max-width: 400px; /* Increased width */
+      height: 120px;    /* Set a fixed height for a more rectangular look */
+      object-fit: contain; /* Ensures the logo's aspect ratio stays intact */
       margin: 0 auto;
       animation: slideUp 1.5s ease-out;
     }
@@ -120,13 +120,23 @@
     }
 
     @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
 
     @keyframes slideUp {
-      0% { transform: translateY(20px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
+      0% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     @media (max-width: 768px) {
@@ -149,13 +159,13 @@
 
   <!-- Service Cards -->
   <div class="services">
-    <a href="mailto:northtechrepairs@gmail.com?subject=Screen Repair Inquiry" class="service-card">
+    <a href="contact.html?service=screen-repair" class="service-card">
       <img src="images/images/screen.jpg" alt="Screen Repair">
       <h3>Screen Repair</h3>
       <p>Cracked or damaged screen? We fix it quickly!</p>
     </a>
 
-    <a href="mailto:northtechrepairs@gmail.com?subject=Battery Replacement Inquiry" class="service-card">
+    <a href="contact.html?service=battery-replacement" class="service-card">
       <img src="images/images/battery.jpg" alt="Battery Replacement">
       <h3>Battery Replacement</h3>
       <p>Replace your battery for optimal performance.</p>
@@ -164,7 +174,7 @@
 
   <!-- Water Damage -->
   <div class="services">
-    <a href="mailto:northtechrepairs@gmail.com?subject=Water Damage Repair Inquiry" class="service-card water-damage">
+    <a href="contact.html?service=water-damage" class="service-card water-damage">
       <img src="images/images/waterjpg.jpg" alt="Water Damage Repair">
       <h3>Water Damage</h3>
       <p>We bring your device back to life!</p>
@@ -173,7 +183,7 @@
 
   <!-- Diagnostics -->
   <div class="services">
-    <a href="mailto:northtechrepairs@gmail.com?subject=Diagnostics Inquiry" class="service-card diagnostics">
+    <a href="contact.html?service=diagnostics" class="service-card diagnostics">
       <img src="images/images/repair.jpg" alt="Diagnostics">
       <h3>Diagnostics</h3>
       <p>Let us diagnose the problem with your device before you spend any money.</p>
@@ -182,7 +192,6 @@
 
   <!-- Call to Action Buttons -->
   <a href="#" class="button">Book a Repair (Coming Soon)</a>
-  <a href="mailto:northtechrepairs@gmail.com" class="button">Email Us</a>
   <a href="contact.html" class="button">Contact Us</a>
 
   <!-- Footer -->
