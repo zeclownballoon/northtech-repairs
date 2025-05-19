@@ -16,6 +16,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      flex-direction: column;
     }
 
     .contact-container {
@@ -25,13 +26,18 @@
       width: 100%;
       max-width: 600px; /* Set a max width for the form */
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .logo img {
+      width: 300px; /* Adjust logo width */
+      margin-bottom: 2rem;
     }
 
     h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
       color: #ffffff;
-      text-align: center;
     }
 
     .form-group {
@@ -91,6 +97,11 @@
 <body>
 
   <div class="contact-container">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="images/images/northtech_logo.png" alt="NorthTech Repairs Logo">
+    </div>
+
     <h1>Contact Us</h1>
     <form action="mailto:northtechrepairs@gmail.com" method="post" enctype="text/plain">
       <!-- Your Name -->
