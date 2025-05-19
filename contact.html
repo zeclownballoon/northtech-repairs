@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - NorthTech Repairs</title>
+  <style>
+    body {
+      background: url('images/images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ffffff;
+      text-align: center;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .logo img {
+      max-width: 250px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    form {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      max-width: 500px;
+      margin: 2rem auto;
+      border-radius: 12px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input[type="submit"] {
+      background-color: #3b82f6;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #2563eb;
+    }
+
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    a {
+      color: #3b82f6;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="images/images/northtech_logo.png" alt="NorthTech Repairs Logo">
+  </div>
+  <h1>Contact Us</h1>
+
+  <form action="https://formsubmit.co/northtechrepairs@gmail.com" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <input type="submit" value="Send Message" />
+  </form>
+
+  <div class="footer">
+    <p>&copy; 2025 NorthTech Repairs</p>
+    <p><a href="index.html">Back to Home</a></p>
+  </div>
+</body>
+</html>
