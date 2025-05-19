@@ -19,6 +19,15 @@
       justify-content: space-between;
     }
 
+    .container {
+      max-width: 1200px; /* Make the site a bit wider */
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
     .logo {
       font-size: 2.5rem;
       font-weight: bold;
@@ -28,7 +37,7 @@
     }
 
     .logo img {
-      width: 650px; /* Set width to 800px */
+      width: 650px; /* Set width to 650px */
       height: 350px; /* Set height to 350px */
       margin: 0 auto;
       display: block;
@@ -59,14 +68,11 @@
       background-color: #2563eb;
     }
 
-    /* Updated Service Cards Layout */
     .services {
       display: grid;
-      grid-template-columns: 1fr; /* One card per row */
-      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr); /* Two columns */
+      gap: 2rem;
       margin-top: 2rem;
-      max-width: 900px; /* Adjust to make the site narrower */
-      margin: 0 auto; /* Center the grid */
     }
 
     .service-card {
@@ -118,43 +124,45 @@
 </head>
 <body>
 
-  <!-- Logo and Tagline -->
-  <div class="logo">
-    <img src="images/images/northtech_logo.png" alt="NorthTech Repairs Logo">
-  </div>
-  <div class="tagline">Your Local Mobile & Gadget Repair Experts</div>
+  <div class="container">
+    <!-- Logo and Tagline -->
+    <div class="logo">
+      <img src="images/images/northtech_logo.png" alt="NorthTech Repairs Logo">
+    </div>
+    <div class="tagline">Your Local Mobile & Gadget Repair Experts</div>
 
-  <!-- Service Cards -->
-  <div class="services">
-    <!-- Screen Repair Card (clickable) -->
-    <a href="contact.html?service=screen-repair" class="service-card">
-      <img src="images/images/screen.jpg" alt="Screen Repair">
-      <h3>Screen Repair</h3>
-      <p>Cracked or damaged screen? We fix it quickly!</p>
-    </a>
-    <!-- Battery Replacement Card (clickable) -->
-    <a href="contact.html?service=battery-replacement" class="service-card">
-      <img src="images/images/battery.jpg" alt="Battery Replacement">
-      <h3>Battery Replacement</h3>
-      <p>Replace your battery for optimal performance.</p>
-    </a>
-    <!-- Water Damage Card (clickable) -->
-    <a href="contact.html?service=water-damage" class="service-card water-damage">
-      <img src="images/images/waterjpg.jpg" alt="Water Damage Repair">
-      <h3>Water Damage</h3>
-      <p>We bring your device back to life!</p>
-    </a>
-    <!-- Diagnostics Card (clickable) -->
-    <a href="contact.html?service=diagnostics" class="service-card">
-      <img src="images/images/repair.jpg" alt="Diagnostics">
-      <h3>Diagnostics</h3>
-      <p>Let us help identify any issues with your device.</p>
-    </a>
-  </div>
+    <!-- Service Cards -->
+    <div class="services">
+      <!-- Screen Repair Card (clickable) -->
+      <a href="contact.html?service=screen-repair" class="service-card">
+        <img src="images/images/screen.jpg" alt="Screen Repair">
+        <h3>Screen Repair</h3>
+        <p>Cracked or damaged screen? We fix it quickly!</p>
+      </a>
+      <!-- Battery Replacement Card (clickable) -->
+      <a href="contact.html?service=battery-replacement" class="service-card">
+        <img src="images/images/battery.jpg" alt="Battery Replacement">
+        <h3>Battery Replacement</h3>
+        <p>Replace your battery for optimal performance.</p>
+      </a>
+      <!-- Water Damage Card (clickable) -->
+      <a href="contact.html?service=water-damage" class="service-card water-damage">
+        <img src="images/images/waterjpg.jpg" alt="Water Damage Repair">
+        <h3>Water Damage</h3>
+        <p>We bring your device back to life!</p>
+      </a>
+      <!-- Diagnostics Card (clickable) -->
+      <a href="contact.html?service=diagnostics" class="service-card">
+        <img src="images/images/repair.jpg" alt="Diagnostics">
+        <h3>Diagnostics</h3>
+        <p>Let us help identify any issues with your device.</p>
+      </a>
+    </div>
 
-  <!-- Call to Action Buttons -->
-  <a href="#" class="button">Book a Repair (Coming Soon)</a>
-  <a href="mailto:northtechrepairs@gmail.com" class="button">Email Us</a>
+    <!-- Call to Action Buttons -->
+    <a href="#" class="button">Book a Repair (Coming Soon)</a>
+    <a href="mailto:northtechrepairs@gmail.com" class="button">Email Us</a>
+  </div>
 
   <div class="footer">&copy; 2025 NorthTech Repairs</div>
 </body>
