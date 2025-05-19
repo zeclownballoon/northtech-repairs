@@ -6,7 +6,8 @@
   <title>NorthTech Repairs</title>
   <style>
     body {
-      background: linear-gradient(to bottom right, #1f2937, #4f46e5);
+      background: url('images/background.png') no-repeat center center fixed;
+      background-size: cover;
       font-family: 'Segoe UI', sans-serif;
       color: #ffffff;
       text-align: center;
@@ -22,6 +23,12 @@
       font-weight: bold;
       margin-bottom: 0.5rem;
       color: #ffffff;
+    }
+    .logo img {
+      max-width: 250px; /* Adjust size as needed */
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
     }
     .tagline {
       font-size: 1.25rem;
@@ -70,23 +77,26 @@
   </style>
 </head>
 <body>
-  <div class="logo">NorthTech Repairs</div>
+  <!-- Logo and Tagline -->
+  <div class="logo">
+    <img src="images/northtech_logo.png" alt="NorthTech Repairs Logo">
+  </div>
   <div class="tagline">Your Local Mobile & Gadget Repair Experts</div>
 
   <!-- Service Cards -->
   <div class="services">
     <div class="service-card">
-      <img src="https://via.placeholder.com/150" alt="Screen Repair">
+      <img src="images/screen_repair.png" alt="Screen Repair">
       <h3>Screen Repair</h3>
       <p>Cracked or damaged screen? We fix it quickly!</p>
     </div>
     <div class="service-card">
-      <img src="https://via.placeholder.com/150" alt="Battery Replacement">
+      <img src="images/battery_replacement.png" alt="Battery Replacement">
       <h3>Battery Replacement</h3>
       <p>Replace your battery for optimal performance.</p>
     </div>
     <div class="service-card">
-      <img src="https://via.placeholder.com/150" alt="Water Damage Repair">
+      <img src="images/water_damage_repair.png" alt="Water Damage Repair">
       <h3>Water Damage</h3>
       <p>We bring your device back to life!</p>
     </div>
