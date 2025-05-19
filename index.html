@@ -28,7 +28,7 @@
     }
 
     .logo img {
-      width: 800; /* Set width to 800px */
+      width: 800px; /* Set width to 800px */
       height: 350px; /* Set height to 350px */
       margin: 0 auto;
       display: block;
@@ -59,11 +59,14 @@
       background-color: #2563eb;
     }
 
+    /* Updated Service Cards Layout */
     .services {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* Two columns */
+      grid-template-columns: 1fr; /* One card per row */
       gap: 1rem;
       margin-top: 2rem;
+      max-width: 900px; /* Adjust to make the site narrower */
+      margin: 0 auto; /* Center the grid */
     }
 
     .service-card {
