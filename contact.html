@@ -13,72 +13,156 @@
       text-align: center;
       margin: 0;
       padding: 2rem;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      animation: fadeIn 1s ease-out;
     }
 
     .logo img {
-      max-width: 250px;
-      margin-bottom: 1rem;
+      max-width: 350px;
+      height: 100px;
+      object-fit: contain;
+      margin: 0 auto;
+      animation: slideUp 1.5s ease-out;
     }
 
-    h1 {
-      margin-bottom: 1rem;
-    }
-
-    form {
-      background: rgba(0, 0, 0, 0.6);
+    .form-container {
+      max-width: 600px;
+      width: 90%;
+      background: rgba(0, 0, 0, 0.7);
       padding: 2rem;
-      max-width: 500px;
-      margin: 2rem auto;
       border-radius: 12px;
+      margin-top: 3rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1.5s ease-out;
     }
 
-    input, textarea {
+    .form-container input,
+    .form-container textarea {
       width: 100%;
       padding: 1rem;
-      margin: 0.5rem 0;
-      border: none;
+      margin-bottom: 1rem;
       border-radius: 8px;
+      border: none;
+      box-sizing: border-box;
       font-size: 1rem;
     }
 
-    input[type="submit"] {
+    .form-container button {
       background-color: #3b82f6;
       color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 1.2rem;
       cursor: pointer;
       transition: background 0.3s ease;
     }
 
-    input[type="submit"]:hover {
+    .form-container button:hover {
       background-color: #2563eb;
+    }
+
+    .service-info {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #d1d5db;
+      font-weight: bold;
     }
 
     .footer {
       margin-top: 3rem;
       font-size: 0.8rem;
       color: #9ca3af;
+      text-align: center;
+      padding: 2rem 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      animation: fadeIn 2s ease-out;
     }
 
-    a {
+    .footer a {
       color: #3b82f6;
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      0% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Logo and Tagline -->
   <div class="logo">
     <img src="images/images/northtech_logo.png" alt="NorthTech Repairs Logo">
   </div>
-  <h1>Contact Us</h1>
+  <div class="tagline">We'd Love to Hear From You! Please Fill Out the Form Below</div>
 
-  <form action="https://formsubmit.co/northtechrepairs@gmail.com" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <input type="submit" value="Send Message" />
-  </form>
+  <!-- Contact Form -->
+  <div class="form-container">
+    <!-- Service Info (based on URL parameter) -->
+    <div class="service-info" id="service-info"></div>
 
+    <!-- Contact Form -->
+    <form action="thank-you.html" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <input type="hidden" name="service" id="service" value="">
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
   <div class="footer">
     <p>&copy; 2025 NorthTech Repairs</p>
-    <p><a href="index.html">Back to Home</a></p>
+    <p>Email: <a href="mailto:northtechrepairs@gmail.com">northtechrepairs@gmail.com</a></p>
+    <p>Phone: (123) 456-7890</p>
+    <p>Hours: Mon - Fri, 9 AM - 6 PM</p>
   </div>
+
+  <!-- JavaScript to Handle URL Parameters and Pre-fill the Form -->
+  <script>
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const service = urlParams.get('service');
+
+    // Display the service info in the contact form
+    const serviceInfo = document.getElementById('service-info');
+    const serviceInput = document.getElementById('service');
+    
+    if (service) {
+      // Update the service info message
+      serviceInfo.textContent = `You are interested in: ${service.replace('-', ' ')}`;
+      // Pre-fill the hidden service field
+      serviceInput.value = service;
+    }
+  </script>
+
 </body>
 </html>
