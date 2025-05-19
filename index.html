@@ -19,10 +19,11 @@
       color: #ffffff;
       margin: 0;
       padding: 0;
-      height: 100vh;
+      height: auto; /* Removed 100vh */
+      min-height: 100vh; /* Ensure it takes at least the full height of the screen */
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: flex-start; /* Align content from the top */
+      align-items: flex-start; /* Align content from the top */
       flex-direction: column;
       position: relative;
     }
@@ -81,7 +82,7 @@
       margin: 0 auto;
       position: relative;
       z-index: 1;
-      padding: 0 15px;
+      padding: 2rem 15px; /* Added top padding for spacing */
     }
 
     /* Logo */
@@ -164,6 +165,17 @@
       }
     }
 
+    /* Adjust the layout if needed for mobile */
+    @media screen and (max-width: 768px) {
+      .logo img {
+        width: 600px;
+        height: 250px;
+      }
+
+      .services {
+        grid-template-columns: 1fr; /* Stack service cards for smaller screens */
+      }
+    }
   </style>
 </head>
 <body>
