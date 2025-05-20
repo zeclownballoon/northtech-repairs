@@ -142,6 +142,14 @@
       margin-bottom: 1rem;
     }
 
+    .cta-buttons {
+      margin-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
     .footer {
       margin-top: 3rem;
       font-size: 0.8rem;
@@ -160,27 +168,6 @@
       }
     }
 
-    /* About Us Section */
-    .about-us {
-      background-color: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      padding: 2rem;
-      margin-top: 4rem;
-      color: #f3f4f6;
-    }
-
-    .about-us h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #ffffff;
-    }
-
-    .about-us p {
-      line-height: 1.6;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-
     /* Mobile Styles */
     @media screen and (max-width: 768px) {
       .logo img {
@@ -190,18 +177,6 @@
 
       .services {
         grid-template-columns: 1fr;
-      }
-
-      .about-us {
-        padding: 1.5rem;
-      }
-
-      .about-us h2 {
-        font-size: 1.5rem;
-      }
-
-      .about-us p {
-        font-size: 0.95rem;
       }
     }
   </style>
@@ -244,29 +219,11 @@
     </div>
 
     <!-- Call to Action Buttons -->
-    <a href="#" class="button">Book a Repair (Coming Soon)</a>
-    <a href="mailto:northtechrepairs@gmail.com" class="button">Email Us</a>
-    <a href="#about" class="button">Learn More About Us</a>
-
-    <!-- About Us Section -->
-    <section id="about" class="about-us">
-      <h2>About Us</h2>
-      <p>
-        Hello! I'm a young and passionate entrepreneur with a deep love for all things tech.
-        Ever since I was a kid, I've been fascinated by how devices work — whether it was
-        taking apart old phones, upgrading laptops, or helping friends fix their consoles.
-      </p>
-      <p>
-        Starting NorthTech Repairs is more than just a business venture — it's a dream come true.
-        I’m ecstatic to finally turn my passion into a purpose by helping people get their tech
-        back in top shape. I believe in reliable repairs, honest service, and building a community
-        of customers who feel taken care of.
-      </p>
-      <p>
-        Whether it's a cracked screen, slow laptop, or something you just can’t figure out,
-        NorthTech Repairs is here to help — with enthusiasm, skill, and a smile!
-      </p>
-    </section>
+    <div class="cta-buttons">
+      <a href="#" class="button">Book a Repair (Coming Soon)</a>
+      <a href="mailto:northtechrepairs@gmail.com" class="button">Email Us</a>
+      <a href="about.html" class="button">Learn More About Us</a>
+    </div>
 
     <div class="footer">&copy; 2025 NorthTech Repairs</div>
   </div>
