@@ -28,11 +28,40 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       text-align: center;
       margin: 2rem auto;
+      position: relative;
+    }
+
+    .back-home {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background-color: #3b82f6;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-home:hover {
+      background-color: #2563eb;
+    }
+
+    .back-home::before {
+      content: '🏠';
+      font-size: 1.2rem;
     }
 
     h1 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
+      margin-top: 2.5rem;
     }
 
     label {
@@ -62,15 +91,23 @@
       min-height: 100px;
     }
 
-    button {
+    button[type="submit"] {
       background-color: #3b82f6;
       color: white;
+      padding: 1rem 2rem; /* Increased padding for larger size */
+      border-radius: 8px;
+      border: none;
+      font-size: 1.2rem; /* Larger font size */
+      font-weight: bold; /* Bold text to match main site */
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+      width: 100%; /* Full width for prominence */
     }
 
-    button:hover {
+    button[type="submit"]:hover {
       background-color: #2563eb;
+      transform: translateY(-2px); /* Slight lift effect on hover */
     }
 
     .hidden {
@@ -112,11 +149,25 @@
         padding: 1.5rem;
         width: 95%;
       }
+      .back-home {
+        top: 0.5rem;
+        left: 0.5rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+      h1 {
+        margin-top: 2rem;
+      }
+      button[type="submit"] {
+        padding: 0.8rem 1.5rem; /* Slightly smaller padding for mobile */
+        font-size: 1.1rem; /* Slightly smaller font for mobile */
+      }
     }
   </style>
 </head>
 <body>
   <div class="booking-container">
+    <a href="index.html" class="back-home">Back Home</a>
     <h1>Book Your Repair</h1>
     <form id="booking-form">
       <label for="model">Select Model</label>
