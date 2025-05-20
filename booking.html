@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book Your Repair - NorthTech Repairs</title>
+  <title>NorthTech Repairs - Book Your Repair</title>
   <style>
     body {
       background: url('images/images/background.png') no-repeat center center fixed;
@@ -12,7 +12,7 @@
       color: #ffffff;
       margin: 0;
       padding: 0;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -23,10 +23,11 @@
       background: rgba(0, 0, 0, 0.7);
       padding: 2rem;
       border-radius: 12px;
-      max-width: 600px;
-      width: 100%;
+      max-width: 500px;
+      width: 90%;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       text-align: center;
+      margin: 2rem auto;
     }
 
     h1 {
@@ -36,28 +37,35 @@
 
     label {
       display: block;
-      margin-top: 1rem;
+      margin: 0.5rem 0;
       color: #d1d5db;
+      text-align: left;
     }
 
-    select, button {
+    input, select, textarea {
       width: 100%;
-      padding: 0.75rem;
-      margin-top: 0.5rem;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
       border-radius: 8px;
+      border: none;
       font-size: 1rem;
-      border: 1px solid #ccc;
       background-color: #fff;
       color: #333;
+    }
+
+    input, select, textarea {
+      border: 1px solid #ccc;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
     }
 
     button {
       background-color: #3b82f6;
       color: white;
-      border: none;
       cursor: pointer;
-      font-size: 1.1rem;
-      margin-top: 1.5rem;
       transition: background-color 0.3s ease;
     }
 
@@ -65,8 +73,34 @@
       background-color: #2563eb;
     }
 
+    .hidden {
+      display: none;
+    }
+
+    #confirmation {
+      margin-top: 1rem;
+    }
+
+    #checkmark {
+      width: 50px;
+      height: 50px;
+      border: 5px solid green;
+      border-radius: 50%;
+      position: relative;
+      margin: 20px auto;
+    }
+
+    #checkmark::after {
+      content: '✔';
+      font-size: 30px;
+      color: white;
+      position: absolute;
+      top: 5px;
+      left: 8px;
+    }
+
     .footer {
-      margin-top: 3rem;
+      margin-top: 2rem;
       font-size: 0.8rem;
       color: #9ca3af;
       text-align: center;
@@ -76,49 +110,60 @@
     @media screen and (max-width: 768px) {
       .booking-container {
         padding: 1.5rem;
-        width: 90%;
+        width: 95%;
       }
     }
   </style>
 </head>
 <body>
-
   <div class="booking-container">
     <h1>Book Your Repair</h1>
+    <form id="booking-form">
+      <label for="model">Select Model</label>
+      <select id="model" name="model" onchange="updateRepairOptions()" required>
+        <option value="none">--Select Model--</option>
+        <option value="apple">Apple</option>
+        <option value="samsung">Samsung</option>
+        <option value="other">Other</option>
+      </select>
 
-    <!-- Model Selection -->
-    <label for="model">Select Model</label>
-    <select id="model" onchange="updateRepairOptions()">
-      <option value="none">--Select Model--</option>
-      <option value="apple">Apple</option>
-      <option value="samsung">Samsung</option>
-      <option value="other">Other</option>
-    </select>
+      <label for="service">Select Repair Type</label>
+      <select id="service" name="service" required>
+        <option value="none">--Select Repair Type--</option>
+      </select>
 
-    <!-- Repair Type Selection (dynamically loaded) -->
-    <label for="repair">Select Repair Type</label>
-    <select id="repair">
-      <option value="none">--Select Repair Type--</option>
-    </select>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
 
-    <!-- Submit Button -->
-    <button onclick="submitRequest()">Get Estimate</button>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
 
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" name="phone" required />
+
+      <label for="notes">Additional Notes (e.g., frame bent, not turning on)</label>
+      <textarea id="notes" name="notes" placeholder="Describe any specific issues (e.g., frame really bent, not turning on, internet not working)"></textarea>
+
+      <button type="submit">Submit Request</button>
+    </form>
+    <div id="confirmation" class="hidden">
+      <p>Request Submitted! We will contact you with an estimate.</p>
+      <div id="checkmark"></div>
+    </div>
   </div>
 
-  <div class="footer">&copy; 2025 NorthTech Repairs</div>
+  <div class="footer">© 2025 NorthTech Repairs</div>
 
   <script>
     function updateRepairOptions() {
       const model = document.getElementById('model').value;
-      const repairSelect = document.getElementById('repair');
+      const repairSelect = document.getElementById('service');
       
       // Clear previous options
       repairSelect.innerHTML = '<option value="none">--Select Repair Type--</option>';
 
       // Add repair options based on selected model
       let repairOptions = [];
-
       if (model === 'apple') {
         repairOptions = ['Screen Repair', 'Battery Replacement', 'Water Damage', 'Diagnostics'];
       } else if (model === 'samsung') {
@@ -136,19 +181,30 @@
       });
     }
 
-    function submitRequest() {
-      const model = document.getElementById('model').value;
-      const repair = document.getElementById('repair').value;
+    document.getElementById('booking-form').addEventListener('submit', function(event) {
+      event.preventDefault();
 
-      if (model === 'none' || repair === 'none') {
+      const model = document.getElementById('model').value;
+      const service = document.getElementById('service').value;
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const notes = document.getElementById('notes').value;
+
+      if (model === 'none' || service === 'none') {
         alert('Please select both model and repair type.');
         return;
       }
 
-      // Logic for submitting the request (e.g., open email client, show a message, etc.)
-      alert(`Request submitted for ${repair} on ${model} model. We will contact you with an estimate.`);
-    }
-  </script>
+      console.log(`Request submitted for ${service} on ${model} model`);
+      console.log(`Name: ${name}, Email: ${email}, Phone: ${phone}, Notes: ${notes || 'None'}`);
 
+      document.getElementById('booking-form').reset();
+      document.getElementById('confirmation').classList.remove('hidden');
+      setTimeout(function() {
+        document.getElementById('confirmation').classList.add('hidden');
+      }, 5000);
+    });
+  </script>
 </body>
 </html>
