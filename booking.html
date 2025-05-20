@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NorthTech Repairs - Book Your Repair</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      background: url('images/images/background.png') no-repeat center center fixed;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/images/background.png') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Segoe UI', sans-serif;
       color: #ffffff;
@@ -19,6 +20,57 @@
       flex-direction: column;
     }
 
+    /* Navbar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: #2563eb;
+    }
+
+    .nav-links a.active {
+      background: #f59e0b;
+      color: #ffffff;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
     .booking-container {
       background: rgba(0, 0, 0, 0.7);
       padding: 2rem;
@@ -27,41 +79,21 @@
       width: 90%;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       text-align: center;
-      margin: 2rem auto;
+      margin: 6rem auto 2rem; /* Adjusted margin for navbar */
       position: relative;
     }
 
-    .back-home {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      background-color: #3b82f6;
-      color: white;
-      padding: 0.5rem 1rem;
+    .header-image {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto 1rem;
+      display: block;
       border-radius: 8px;
-      border: none;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .back-home:hover {
-      background-color: #2563eb;
-    }
-
-    .back-home::before {
-      content: '🏠';
-      font-size: 1.2rem;
     }
 
     h1 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
-      margin-top: 2.5rem;
     }
 
     label {
@@ -94,20 +126,35 @@
     button[type="submit"] {
       background-color: #3b82f6;
       color: white;
-      padding: 1rem 2rem; /* Increased padding for larger size */
+      padding: 1rem 2rem;
       border-radius: 8px;
       border: none;
-      font-size: 1.2rem; /* Larger font size */
-      font-weight: bold; /* Bold text to match main site */
+      font-size: 1.2rem;
+      font-weight: bold;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
-      width: 100%; /* Full width for prominence */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      width: 100%;
     }
 
     button[type="submit"]:hover {
       background-color: #2563eb;
-      transform: translateY(-2px); /* Slight lift effect on hover */
+      transform: translateY(-2px);
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1rem;
+      color: #d1d5db;
+      font-size: 0.9rem;
+    }
+
+    .trust-badge::before {
+      content: '🔒';
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
     }
 
     .hidden {
@@ -145,29 +192,74 @@
 
     /* Responsive for mobile */
     @media screen and (max-width: 768px) {
+      .navbar {
+        padding: 0.5rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 0.8rem;
+        text-align: center;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
       .booking-container {
         padding: 1.5rem;
         width: 95%;
+        margin-top: 5rem; /* Adjusted for smaller navbar */
       }
-      .back-home {
-        top: 0.5rem;
-        left: 0.5rem;
-        padding: 0.4rem 0.8rem;
-        font-size: 0.9rem;
-      }
+
       h1 {
-        margin-top: 2rem;
+        margin-top: 1rem;
       }
+
       button[type="submit"] {
-        padding: 0.8rem 1.5rem; /* Slightly smaller padding for mobile */
-        font-size: 1.1rem; /* Slightly smaller font for mobile */
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
+      }
+
+      .header-image {
+        max-width: 200px;
       }
     }
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="images/images/northtech_logo.png" alt="NorthTech Repairs Logo">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">Learn More About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="booking.html" class="active">Make a Booking</a>
+    </div>
+    <div class="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
   <div class="booking-container">
-    <a href="index.html" class="back-home">Back Home</a>
+    <img src="images/repair-placeholder.jpg" alt="Device Repair" class="header-image">
     <h1>Book Your Repair</h1>
     <form id="booking-form">
       <label for="model">Select Model</label>
@@ -196,6 +288,7 @@
       <textarea id="notes" name="notes" placeholder="Describe any specific issues (e.g., frame really bent, not turning on, internet not working)"></textarea>
 
       <button type="submit">Submit Request</button>
+      <div class="trust-badge">🔒 Secure Booking Guaranteed</div>
     </form>
     <div id="confirmation" class="hidden">
       <p>Request Submitted! We will contact you with an estimate.</p>
@@ -206,6 +299,13 @@
   <div class="footer">© 2025 NorthTech Repairs</div>
 
   <script>
+    // Hamburger menu toggle
+    document.querySelector('.hamburger').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+      this.querySelector('i').classList.toggle('fa-bars');
+      this.querySelector('i').classList.toggle('fa-times');
+    });
+
     function updateRepairOptions() {
       const model = document.getElementById('model').value;
       const repairSelect = document.getElementById('service');
