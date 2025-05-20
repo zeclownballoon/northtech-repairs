@@ -241,7 +241,9 @@
 
   <div class="content">
     <h1>Contact Us</h1>
-    <form id="contact-form">
+    <form id="contact-form" name="contact" data-netlify="true" action="/" method="POST">
+      <input type="hidden" name="form-name" value="contact">
+      <input type="hidden" name="bot-field">
       <div class="form-group">
         <label for="name">Your Name</label>
         <input type="text" id="name" name="name" placeholder="Your Full Name" required>
@@ -283,11 +285,20 @@
 
       console.log(`Contact Form Submitted: Name: ${name}, Email: ${email}, Message: ${message}`);
 
-      document.getElementById('contact-form').reset();
-      document.getElementById('confirmation').classList.add('active');
-      setTimeout(function() {
-        document.getElementById('confirmation').classList.remove('active');
-      }, 5000);
+      const form = this;
+      fetch('/', {
+        method: 'POST',
+        body: new FormData(form)
+      }).then(() => {
+        document.getElementById('contact-form').reset();
+        document.getElementById('confirmation').classList.add('active');
+        setTimeout(function() {
+          document.getElementById('confirmation').classList.remove('active');
+        }, 5000);
+      }).catch(error => {
+        console.error('Form submission error:', error);
+        alert('There was an error submitting your message. Please try again.');
+      });
     });
   </script>
 </body>
