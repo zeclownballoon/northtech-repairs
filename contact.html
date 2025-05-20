@@ -20,18 +20,18 @@
     }
 
     .contact-container {
-      background: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+      background: rgba(0, 0, 0, 0.7);
       padding: 2rem;
       border-radius: 12px;
       width: 100%;
-      max-width: 600px; /* Set a max width for the form */
+      max-width: 600px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       text-align: center;
     }
 
     .logo img {
-      width: 300px; /* Adjust logo width */
-      margin-bottom: 2rem;
+      width: 300px;
+      margin-bottom: 1.5rem;
     }
 
     h1 {
@@ -65,8 +65,8 @@
     }
 
     textarea {
-      resize: vertical; /* Allows the user to resize the message box */
-      min-height: 150px; /* Minimum height for the message box */
+      resize: vertical;
+      min-height: 150px;
     }
 
     .submit-btn {
@@ -85,18 +85,36 @@
       background-color: #2563eb;
     }
 
+    .back-home {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #6b7280;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-home:hover {
+      background-color: #4b5563;
+    }
+
     .footer {
       margin-top: 3rem;
       font-size: 0.8rem;
       color: #9ca3af;
       text-align: center;
     }
-
   </style>
 </head>
 <body>
 
   <div class="contact-container">
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-home">← Back to Home</a>
+
     <!-- Logo -->
     <div class="logo">
       <img src="images/images/northtech_logo.png" alt="NorthTech Repairs Logo">
@@ -104,25 +122,21 @@
 
     <h1>Contact Us</h1>
     <form action="mailto:northtechrepairs@gmail.com" method="post" enctype="text/plain">
-      <!-- Your Name -->
       <div class="form-group">
         <label for="name">Your Name</label>
         <input type="text" id="name" name="name" placeholder="Your Full Name" required>
       </div>
 
-      <!-- Your Email -->
       <div class="form-group">
         <label for="email">Your Email</label>
         <input type="email" id="email" name="email" placeholder="Your Email Address" required>
       </div>
 
-      <!-- Your Message -->
       <div class="form-group">
         <label for="message">Your Message</label>
         <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
       </div>
 
-      <!-- Submit Button -->
       <button type="submit" class="submit-btn">Send Message</button>
     </form>
   </div>
