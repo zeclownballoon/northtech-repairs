@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NorthTech Repairs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* Basic Reset */
     * {
@@ -13,7 +14,7 @@
     }
 
     body {
-      background: url('images/images/background.png') no-repeat center center fixed;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/images/background.png') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Segoe UI', sans-serif;
       color: #ffffff;
@@ -92,14 +93,15 @@
     }
 
     .tagline {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       margin-bottom: 2rem;
       color: #d1d5db;
       text-align: center;
+      animation: fadeIn 2s ease-out;
     }
 
     .button {
-      display: block;
+      display: inline-block;
       width: 80%;
       max-width: 350px;
       margin: 0.75rem auto;
@@ -109,12 +111,26 @@
       text-decoration: none;
       border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.2s ease;
       text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
     }
 
     .button:hover {
       background-color: #2563eb;
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      background-color: transparent;
+      border: 2px solid #f59e0b;
+      color: #f59e0b;
+    }
+
+    .button.secondary:hover {
+      background-color: #f59e0b;
+      color: white;
     }
 
     .services {
@@ -131,20 +147,101 @@
       border-radius: 8px;
       text-align: center;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, background 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
       color: white;
       text-decoration: none;
+    }
+
+    .service-card i {
+      font-size: 2rem;
+      color: #3b82f6;
+      margin-bottom: 0.5rem;
     }
 
     .service-card img {
       width: 100%;
       max-width: 225px;
       margin-bottom: 1rem;
+      border-radius: 8px;
     }
 
     .service-card:hover {
-      transform: scale(1.05);
+      transform: translateY(-5px);
       background: rgba(59, 130, 246, 0.6);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .about, .testimonials, .why-choose-us, .faq, .contact {
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .about img {
+      width: 100%;
+      max-width: 400px;
+      margin-top: 1rem;
+      border-radius: 8px;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .testimonial {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      color: #d1d5db;
+    }
+
+    .testimonial p.author {
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    .why-choose-us ul {
+      list-style: none;
+      text-align: left;
+      margin-top: 1rem;
+    }
+
+    .why-choose-us li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .why-choose-us li::before {
+      content: '✔';
+      color: #3b82f6;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .faq-item h3 {
+      color: #3b82f6;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact p {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact i {
+      color: #3b82f6;
     }
 
     .cta-buttons {
@@ -156,7 +253,7 @@
     }
 
     .footer {
-      margin-top: 3rem;
+      margin: 3rem 0;
       font-size: 0.8rem;
       color: #9ca3af;
       text-align: center;
@@ -173,20 +270,37 @@
       }
     }
 
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
     @media screen and (max-width: 768px) {
       .logo img {
         width: 100%;
         height: auto;
       }
 
-      .services {
+      .services, .testimonials {
         grid-template-columns: 1fr;
+      }
+
+      .about, .testimonials, .why-choose-us, .faq, .contact {
+        padding: 1.5rem;
+      }
+
+      .button {
+        font-size: 1.1rem;
+        padding: 0.8rem;
       }
     }
   </style>
 </head>
 <body>
-
   <div class="side-decoration">
     <div class="tech-shapes"></div>
   </div>
@@ -197,40 +311,95 @@
       <img src="images/images/northtech_logo.png" alt="NorthTech Repairs Logo">
     </div>
 
-    <div class="tagline">Your Local Mobile & Gadget Repair Experts</div>
+    <div class="tagline">Fast, Reliable Device Repairs by Experts You Can Trust</div>
 
+    <!-- Call to Action Buttons -->
+    <div class="cta-buttons">
+      <a href="booking.html" class="button">Book a Repair</a>
+      <a href="about.html" class="button secondary">Learn More About Us</a>
+    </div>
+
+    <!-- About Us Section -->
+    <section class="about">
+      <h2>About NorthTech Repairs</h2>
+      <p>We’re a family-owned business with over 10 years of experience, dedicated to bringing your devices back to life with fast, affordable repairs.</p>
+      <img src="images/team-photo.jpg" alt="Our Team">
+    </section>
+
+    <!-- Services Section -->
     <div class="services">
       <a href="contact.html?service=screen-repair" class="service-card">
+        <i class="fas fa-mobile-alt"></i>
         <img src="images/images/screen.jpg" alt="Screen Repair">
         <h3>Screen Repair</h3>
         <p>Cracked or damaged screen? We fix it quickly!</p>
       </a>
       <a href="contact.html?service=battery-replacement" class="service-card">
+        <i class="fas fa-battery-full"></i>
         <img src="images/images/battery.jpg" alt="Battery Replacement">
         <h3>Battery Replacement</h3>
         <p>Replace your battery for optimal performance.</p>
       </a>
       <a href="contact.html?service=water-damage" class="service-card">
+        <i class="fas fa-tint"></i>
         <img src="images/images/waterjpg.jpg" alt="Water Damage Repair">
         <h3>Water Damage</h3>
         <p>We bring your device back to life!</p>
       </a>
       <a href="contact.html?service=diagnostics" class="service-card">
+        <i class="fas fa-tools"></i>
         <img src="images/images/repair.jpg" alt="Diagnostics">
         <h3>Diagnostics</h3>
         <p>Let us help identify any issues with your device.</p>
       </a>
     </div>
 
-    <!-- Call to Action Buttons -->
-    <div class="cta-buttons">
-      <a href="booking.html" class="button">Book a Repair</a>
-      <a href="mailto:northtechrepairs@gmail.com" class="button">Email Us</a>
-      <a href="about.html" class="button">Learn More About Us</a>
-    </div>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonial">
+        <p>“Fixed my iPhone screen in under an hour! Amazing service!”</p>
+        <p class="author">– Jane D.</p>
+      </div>
+      <div class="testimonial">
+        <p>“Affordable and professional. Highly recommend!”</p>
+        <p class="author">– Mark S.</p>
+      </div>
+    </section>
 
-    <div class="footer">&copy; 2025 NorthTech Repairs</div>
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+      <h2>Why Choose Us</h2>
+      <ul>
+        <li>Fast Turnaround: Most repairs completed within hours.</li>
+        <li>Certified Technicians: Expert care for your devices.</li>
+        <li>Affordable Prices: Quality repairs that won’t break the bank.</li>
+        <li>Customer Satisfaction: 4.9/5 from 500+ happy customers.</li>
+      </ul>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>How long does a repair take?</h3>
+        <p>Most repairs are completed within 1-2 hours, depending on the issue.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do you offer a warranty?</h3>
+        <p>Yes, we provide a 90-day warranty on all repairs.</p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+      <h2>Get in Touch</h2>
+      <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+      <p><i class="fas fa-envelope"></i> support@northtechrepairs.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> 123 Tech Street, City, State</p>
+    </section>
+
+    <div class="footer">© 2025 NorthTech Repairs</div>
   </div>
-
 </body>
 </html>
