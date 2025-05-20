@@ -29,6 +29,57 @@
       position: relative;
     }
 
+    /* Navbar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: #2563eb;
+    }
+
+    .nav-links a.active {
+      background: #f59e0b;
+      color: #ffffff;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
     .side-decoration {
       position: absolute;
       top: 0;
@@ -80,7 +131,7 @@
       margin: 0 auto;
       position: relative;
       z-index: 1;
-      padding: 2rem 15px;
+      padding: 6rem 15px 2rem; /* Increased top padding to account for navbar */
     }
 
     .logo img {
@@ -272,7 +323,40 @@
       }
     }
 
+    /* Responsive Navbar */
     @media screen and (max-width: 768px) {
+      .navbar {
+        padding: 0.5rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 0.8rem;
+        text-align: center;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .container {
+        padding-top: 5rem; /* Adjusted for smaller navbar */
+      }
+
       .logo img {
         width: 100%;
         height: auto;
@@ -294,6 +378,22 @@
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="images/images/northtech_logo.png" alt="NorthTech Repairs Logo">
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">Learn More About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="booking.html">Make a Booking</a>
+    </div>
+    <div class="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
   <div class="side-decoration">
     <div class="tech-shapes"></div>
   </div>
@@ -396,5 +496,14 @@
 
     <div class="footer">© 2025 NorthTech Repairs</div>
   </div>
+
+  <script>
+    // Hamburger menu toggle
+    document.querySelector('.hamburger').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+      this.querySelector('i').classList.toggle('fa-bars');
+      this.querySelector('i').classList.toggle('fa-times');
+    });
+  </script>
 </body>
 </html>
