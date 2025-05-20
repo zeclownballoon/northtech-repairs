@@ -3,59 +3,136 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us - NorthTech Repairs</title>
+  <title>NorthTech Repairs - About Us</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      background: url('images/images/background.png') no-repeat center center fixed;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/images/background.png') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Segoe UI', sans-serif;
       color: #ffffff;
       margin: 0;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: 0;
       min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
 
-    .container {
-      max-width: 900px;
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: #2563eb;
+    }
+
+    .nav-links a.active {
+      background: #f59e0b;
+      color: #ffffff;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .content {
       background: rgba(0, 0, 0, 0.7);
       padding: 2rem;
       border-radius: 12px;
+      max-width: 800px;
+      width: 90%;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      margin: 6rem auto 2rem;
     }
 
     h1 {
-      text-align: center;
-      font-size: 2.2rem;
+      font-size: 2rem;
       margin-bottom: 1.5rem;
     }
 
     p {
+      font-size: 1.1rem;
+      color: #d1d5db;
       line-height: 1.6;
       margin-bottom: 1rem;
-      font-size: 1.1rem;
     }
 
-    .back-home {
+    .footer {
       margin-top: 2rem;
-      display: inline-block;
-      background-color: #3b82f6;
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 10px;
-      transition: background-color 0.3s ease;
-    }
-
-    .back-home:hover {
-      background-color: #2563eb;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      text-align: center;
     }
 
     @media screen and (max-width: 768px) {
-      .container {
+      .navbar {
+        padding: 0.5rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 0.8rem;
+        text-align: center;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .content {
         padding: 1.5rem;
+        width: 95%;
+        margin-top: 5rem;
       }
 
       h1 {
@@ -69,8 +146,22 @@
   </style>
 </head>
 <body>
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="images/images/northtech_logo.png" alt="NorthTech Repairs Logo">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">Learn More About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="booking.html">Make a Booking</a>
+    </div>
+    <div class="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
 
-  <div class="container">
+  <div class="content">
     <h1>About Us</h1>
     <p>
       Hello! I'm a young and passionate entrepreneur with a deep love for all things tech.
@@ -87,9 +178,16 @@
       Whether it's a cracked screen, slow laptop, or something you just can’t figure out,
       NorthTech Repairs is here to help — with enthusiasm, skill, and a smile!
     </p>
-
-    <a href="index.html" class="back-home">← Back to Home</a>
   </div>
 
+  <div class="footer">© 2025 NorthTech Repairs</div>
+
+  <script>
+    document.querySelector('.hamburger').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+      this.querySelector('i').classList.toggle('fa-bars');
+      this.querySelector('i').classList.toggle('fa-times');
+    });
+  </script>
 </body>
 </html>
