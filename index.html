@@ -19,16 +19,15 @@
       color: #ffffff;
       margin: 0;
       padding: 0;
-      height: auto; /* Removed 100vh */
-      min-height: 100vh; /* Ensure it takes at least the full height of the screen */
+      height: auto;
+      min-height: 100vh;
       display: flex;
-      justify-content: flex-start; /* Align content from the top */
-      align-items: flex-start; /* Align content from the top */
+      justify-content: flex-start;
+      align-items: flex-start;
       flex-direction: column;
       position: relative;
     }
 
-    /* Side Decorative Gradient */
     .side-decoration {
       position: absolute;
       top: 0;
@@ -61,7 +60,6 @@
       background: linear-gradient(to right, rgba(59, 130, 246, 0.6), rgba(0, 0, 0, 0));
     }
 
-    /* Tech-inspired shapes (circuit patterns/abstract lines) */
     .side-decoration .tech-shapes {
       position: absolute;
       top: 10%;
@@ -75,17 +73,15 @@
       z-index: -2;
     }
 
-    /* Content Container */
     .container {
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
-      padding: 2rem 15px; /* Added top padding for spacing */
+      padding: 2rem 15px;
     }
 
-    /* Logo */
     .logo img {
       width: 800px;
       height: 350px;
@@ -114,13 +110,13 @@
       border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: background 0.3s ease;
+      text-align: center;
     }
 
     .button:hover {
       background-color: #2563eb;
     }
 
-    /* Service Cards */
     .services {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -137,6 +133,7 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: background 0.3s ease;
       color: white;
+      text-decoration: none;
     }
 
     .service-card img {
@@ -145,7 +142,6 @@
       margin-bottom: 1rem;
     }
 
-    /* Footer */
     .footer {
       margin-top: 3rem;
       font-size: 0.8rem;
@@ -153,7 +149,6 @@
       text-align: center;
     }
 
-    /* Slide-Up Animation */
     @keyframes slideUp {
       0% {
         transform: translateY(20px);
@@ -165,15 +160,48 @@
       }
     }
 
-    /* Adjust the layout if needed for mobile */
+    /* About Us Section */
+    .about-us {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 4rem;
+      color: #f3f4f6;
+    }
+
+    .about-us h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .about-us p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    /* Mobile Styles */
     @media screen and (max-width: 768px) {
       .logo img {
-        width: 600px;
-        height: 250px;
+        width: 100%;
+        height: auto;
       }
 
       .services {
-        grid-template-columns: 1fr; /* Stack service cards for smaller screens */
+        grid-template-columns: 1fr;
+      }
+
+      .about-us {
+        padding: 1.5rem;
+      }
+
+      .about-us h2 {
+        font-size: 1.5rem;
+      }
+
+      .about-us p {
+        font-size: 0.95rem;
       }
     }
   </style>
@@ -181,7 +209,6 @@
 <body>
 
   <div class="side-decoration">
-    <!-- Background gradient and tech shapes -->
     <div class="tech-shapes"></div>
   </div>
 
@@ -194,7 +221,6 @@
     <div class="tagline">Your Local Mobile & Gadget Repair Experts</div>
 
     <div class="services">
-      <!-- Service Cards -->
       <a href="contact.html?service=screen-repair" class="service-card">
         <img src="images/images/screen.jpg" alt="Screen Repair">
         <h3>Screen Repair</h3>
@@ -220,6 +246,27 @@
     <!-- Call to Action Buttons -->
     <a href="#" class="button">Book a Repair (Coming Soon)</a>
     <a href="mailto:northtechrepairs@gmail.com" class="button">Email Us</a>
+    <a href="#about" class="button">Learn More About Us</a>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-us">
+      <h2>About Us</h2>
+      <p>
+        Hello! I'm a young and passionate entrepreneur with a deep love for all things tech.
+        Ever since I was a kid, I've been fascinated by how devices work — whether it was
+        taking apart old phones, upgrading laptops, or helping friends fix their consoles.
+      </p>
+      <p>
+        Starting NorthTech Repairs is more than just a business venture — it's a dream come true.
+        I’m ecstatic to finally turn my passion into a purpose by helping people get their tech
+        back in top shape. I believe in reliable repairs, honest service, and building a community
+        of customers who feel taken care of.
+      </p>
+      <p>
+        Whether it's a cracked screen, slow laptop, or something you just can’t figure out,
+        NorthTech Repairs is here to help — with enthusiasm, skill, and a smile!
+      </p>
+    </section>
 
     <div class="footer">&copy; 2025 NorthTech Repairs</div>
   </div>
