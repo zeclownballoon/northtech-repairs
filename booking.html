@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Your Repair - NorthTech Repairs</title>
+  <style>
+    body {
+      background: url('images/images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .booking-container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      color: #d1d5db;
+    }
+
+    select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      color: #333;
+    }
+
+    button {
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      text-align: center;
+    }
+
+    /* Responsive for mobile */
+    @media screen and (max-width: 768px) {
+      .booking-container {
+        padding: 1.5rem;
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="booking-container">
+    <h1>Book Your Repair</h1>
+
+    <!-- Model Selection -->
+    <label for="model">Select Model</label>
+    <select id="model" onchange="updateRepairOptions()">
+      <option value="none">--Select Model--</option>
+      <option value="apple">Apple</option>
+      <option value="samsung">Samsung</option>
+      <option value="other">Other</option>
+    </select>
+
+    <!-- Repair Type Selection (dynamically loaded) -->
+    <label for="repair">Select Repair Type</label>
+    <select id="repair">
+      <option value="none">--Select Repair Type--</option>
+    </select>
+
+    <!-- Submit Button -->
+    <button onclick="submitRequest()">Get Estimate</button>
+
+  </div>
+
+  <div class="footer">&copy; 2025 NorthTech Repairs</div>
+
+  <script>
+    function updateRepairOptions() {
+      const model = document.getElementById('model').value;
+      const repairSelect = document.getElementById('repair');
+      
+      // Clear previous options
+      repairSelect.innerHTML = '<option value="none">--Select Repair Type--</option>';
+
+      // Add repair options based on selected model
+      let repairOptions = [];
+
+      if (model === 'apple') {
+        repairOptions = ['Screen Repair', 'Battery Replacement', 'Water Damage', 'Diagnostics'];
+      } else if (model === 'samsung') {
+        repairOptions = ['Screen Repair', 'Battery Replacement', 'Charging Port Repair', 'Water Damage'];
+      } else if (model === 'other') {
+        repairOptions = ['General Repair', 'Diagnostics', 'Battery Replacement'];
+      }
+
+      // Populate the repair options
+      repairOptions.forEach(option => {
+        const optionElement = document.createElement('option');
+        optionElement.value = option.toLowerCase().replace(/ /g, '-');
+        optionElement.textContent = option;
+        repairSelect.appendChild(optionElement);
+      });
+    }
+
+    function submitRequest() {
+      const model = document.getElementById('model').value;
+      const repair = document.getElementById('repair').value;
+
+      if (model === 'none' || repair === 'none') {
+        alert('Please select both model and repair type.');
+        return;
+      }
+
+      // Logic for submitting the request (e.g., open email client, show a message, etc.)
+      alert(`Request submitted for ${repair} on ${model} model. We will contact you with an estimate.`);
+    }
+  </script>
+
+</body>
+</html>
